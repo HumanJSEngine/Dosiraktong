@@ -91,12 +91,93 @@ body {
   background-size: cover;
 }
 
+.header:hover .gnb a {
+  color:#222 !important;
+  line-height: 80px !important;
+}
+
+.header:hover .gnb a span::after{
+  background: #222 !important;
+}
+
 .nav{
   display:block;
-  width:400px;
-  height:80px;
-  background: red;
 }
+
+.gnb {
+display:flex;
+margin-right:-34px;
+transition: all 0.5s;
+}
+
+.gnb > li > a {
+  font-size: 17px;
+  font-weight: 500;
+  color:#fff;
+  display:block;
+  padding:0px 34px;
+  /* 세로 중앙 및 높이 한번 */
+  /* height: 100px */
+  line-height: 100px;
+  transition:line-height 0.5s, padding 0.5s;
+  
+}
+
+.gnb > li > a > span {
+  position: relative;
+}
+
+.gnb > li > a > span::after {
+  content:'';
+  position: absolute;
+  left:0px;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background: #fff;
+  opacity: 0;
+  transition: width 0.5s, opacity 0.5s;
+}
+
+.gnb > li > a:hover > span::after{
+  opacity:1;
+  width:100%;
+}
+
+
+@media screen and (max-width: 1280px) {
+  .header{
+    padding:0 30px;
+  }
+  .logo{
+    width:150px;
+  }
+  .gnb {
+    margin-right: -26px;
+  }
+  .gnb > li > a {
+    padding:0 26px;
+  }
+}
+
+
+@media screen and (max-width: 1038px) {
+  .logo{
+    width:120px;
+  }
+  .header{
+    height:70px;
+  }
+  .gnb{
+    display:none;
+  }
+}
+
+
+
+
+
+
 
 /* 비주얼 */
 
