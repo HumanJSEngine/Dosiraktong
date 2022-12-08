@@ -24,6 +24,10 @@ html {
   font-size: 16px;
 }
 
+html.active{
+  overflow:hidden !important;
+}
+
 body {
   font-family: "Pretendard", sans-serif;
   font-size: 16px;
@@ -33,6 +37,7 @@ body {
   color: #222;
   word-break: keep-all;
 }
+
 /* 공통요소 */
 .clearfix::after {
   content: "";
@@ -48,6 +53,7 @@ body {
   max-width:1420px;
   margin:0 auto;
 }
+
 /* 레이아웃 */
 .wrap {
   position: relative;
@@ -71,7 +77,7 @@ body {
 }
 
 
-.header > .logo {
+.logo {
   position: relative;
   height:30px;
   width:125px;
@@ -98,6 +104,10 @@ body {
 
 .header:hover .gnb a span::after{
   background: #222 !important;
+}
+
+.header.active{
+  height:80px !important;
 }
 
 .nav{
@@ -144,6 +154,64 @@ transition: all 0.5s;
   width:100%;
 }
 
+/* 모바일메뉴 */
+
+.mbt {
+  position:absolute;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  display:none;
+  font-size:0;
+  border:0;
+  background: transparent;
+  cursor: pointer;
+  width:30px;
+  height:24px;
+}
+
+
+.mbt span {
+  position:absolute;
+  display:block;
+  left:0%;
+  top:0%;
+  width:100%;
+  height:2px;
+  background:#222 !important;
+  transition: background 0.3s;
+}
+
+
+.mbt span:nth-child(1) {
+ top:0%;
+ transform-origin:0 50%;
+ transition:transform 0.3s;
+}
+
+.mbt.ani span:nth-child(1) {
+  transform: rotate(45deg) !important;
+}
+
+.mbt span:nth-child(2){
+ top:calc(50%);
+ transition: opacity 0.3s;
+}
+
+.mbt.ani span:nth-child(2){
+  opacity:0 !important;
+}
+
+.mbt span:nth-child(3){
+ top:100%;
+ transform-origin:0 50%;
+ transition:transform 0.3s;
+}
+
+.mbt.ani span:nth-child(3){
+  transform: rotate(-45deg);
+}
+
 
 @media screen and (max-width: 1280px) {
   .header{
@@ -170,6 +238,9 @@ transition: all 0.5s;
   }
   .gnb{
     display:none;
+  }
+  .mbt{
+    display:block;
   }
 }
 
