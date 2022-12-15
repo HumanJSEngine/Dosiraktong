@@ -1,5 +1,6 @@
 @charset 'utf-8';
 @import url("font/font.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -75,6 +76,27 @@ body {
   border-bottom:1px solid rgba(255, 255, 255, 0.5);
   transition: all 1s;
 }
+
+.visual-box{
+  width:100%;
+  height:100%;
+  background: red;
+}
+
+
+.visual-bg-1 {
+  background: url('/images/main_visual_1.jpg');
+}
+.visual-bg-2 {
+  background: url('/images/main_visual_2.jpg');
+}
+.visual-bg-3 {
+  background: url('/images/main_visual_3.jpg');
+}
+.visual-bg-4 {
+  background: url('/images/main_visual_4.jpg');
+}
+
 
 
 .logo {
@@ -247,6 +269,112 @@ transition: all 0.5s;
   color:#222;
 }
 
+/* 비주얼 */
+
+.visual{
+  position:relative;
+  display:block;
+  width:100%;
+  height:100vh;
+  background:url("/images/main_visual_3.jpg") no-repeat center;
+  background-size: cover;
+}
+
+
+
+/* swiper */
+
+.swiper{
+  width:100%;
+  height:100%;
+  background-color: snow;
+}
+
+.visual-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visual-box .inner h2 {
+  line-height: 1.3;
+  font-size: 74px;
+  color:#fff;
+  
+}
+
+.visual-box .inner p {
+  opacity: 0.9;
+}
+
+.visual-box .inner a{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 220px;
+  height: 65px;
+  opacity: 1;
+  visibility: visible;
+  padding: 0 45px 0 50px;
+  margin-top: 50px;
+  font-size: 17px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.6);
+}
+
+.sw-visual-control {
+  position: absolute;
+  left: 12.11%;
+  top: calc(50% - 230px); 
+  z-index: 9;
+  display:flex;
+  gap: 0 10px; 
+}
+
+.sw-visual-control button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:60px;
+  height:60px;
+  border-radius: 50%;
+  background:rgba(255, 255, 255, 0.3);
+  border:0;
+  font-size:24;
+  cursor: pointer;
+  color:white;
+}
+
+.sw-visual-control button i{
+  opacity:0.5;
+  transition: opacity 0.3s;
+}
+
+.sw-visual-control button:hover i{
+  opacity:1;
+  
+}
+
+
+.service{
+  position:relative;
+  display:block;
+}
+.about{
+  position:relative;
+  display:block;
+}
+
+.business{
+
+}
+
+.footer{
+  position:relative;
+  display:block;
+}
+
+
 
 @media screen and (max-width: 1280px) {
   .header{
@@ -277,49 +405,4 @@ transition: all 0.5s;
   .mbt{
     display:block;
   }
-}
-
-
-
-
-
-
-
-/* 비주얼 */
-
-.visual{
-  position:relative;
-  display:block;
-  width:100%;
-  height:100vh;
-  background:url("/images/main_visual_3.jpg") no-repeat center;
-  background-size: cover;
-}
-
-/* swiper */
-
-.swiper{
-  width:100%;
-  height:100%;
-  background-color: snow;
-}
-
-
-
-.service{
-  position:relative;
-  display:block;
-}
-.about{
-  position:relative;
-  display:block;
-}
-
-.business{
-
-}
-
-.footer{
-  position:relative;
-  display:block;
 }

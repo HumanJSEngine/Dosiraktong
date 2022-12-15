@@ -79,5 +79,18 @@ window.onload = function () {
       }
     });
 
-      const swiper = new Swiper(".sw-visual", {});
+      const swiper = new Swiper(".sw-visual", {
+        effect: "fade",
+        loop:true,
+        speed: 1000,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+
+        navigation: {
+          nextEl: ".sw-visual-prev",
+          prevEl: ".sw-visual-next",
+        },
+      });
   };
