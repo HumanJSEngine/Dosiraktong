@@ -81,7 +81,6 @@ window.onload = function () {
     }
   });
 
-
   const swSlideCount = document.getElementsByClassName("swiper-slide").length;
 
   const swSlidePgUl = document.querySelector(".sw-visual-pg-list");
@@ -89,7 +88,6 @@ window.onload = function () {
   for (let i = 0; i < swSlideCount; i++) {
     swVisualHtml += `<li>${i + 1}</li>`;
   }
-
 
   swSlidePgUl.innerHTML = swVisualHtml;
 
@@ -135,4 +133,25 @@ window.onload = function () {
       swiper.slideToLoop(index, 0, false);
     });
   });
+
+  //business slide
+  const swBusiness = new Swiper(".sw-business", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024:{
+        slidesPerView: 3,
+      }
+    },
+  });
+
+  //business-modal 기능
+  const businessModal = document.querySelector('.business-modal');
+  businessModal.addEventListener('click', () =>{
+    businessModal.style.display = 'none';
+  });
+  
 };
