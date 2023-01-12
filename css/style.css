@@ -57,6 +57,39 @@ body {
   margin: 0 auto;
 }
 
+.gotop {
+  position:fixed;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border-radius:5px;
+  background-color: #3056a1;
+  cursor: pointer;
+  text-align: center;
+  color:#ffff;
+  font-size: 28px;
+  opacity:0;
+  visibility: hidden;
+  transition: bottom 0.3s, visibility 0.3s, opacity 0.3s;
+}
+
+.gotop.active {
+  bottom:20px;
+  visibility: visible;
+  opacity:1;
+}
+
+.gotop.active-footer{
+  bottom:120px !important;
+
+}
+
+
 /* 레이아웃 */
 .wrap {
   position: relative;
@@ -249,8 +282,8 @@ body {
   opacity: 1;
 }
 
-.nav-mb-gnb {
-}
+/* .nav-mb-gnb {
+} */
 
 .nav-mb-gnb li {
   line-height: 67px;
@@ -907,11 +940,62 @@ body {
   }
 }
 
-/* business-modal */
 
-
-/* 하단 */
 .footer {
   position: relative;
   display: block;
+  background: #222;
+  padding: 60px 0;
+}
+
+.footer .inner {
+  width: calc(100% - 20px * 2);
+  margin: 0 auto;
+  max-width: 1420px;
+}
+
+.footer-list {
+  text-align: center;
+  font-size: 15px;
+  color: #666666;
+  line-height: 1.6;
+}
+.footer-list li {
+  padding: 5px 0;
+}
+.footer-list li a {
+  color: #666666;
+}
+.footer-list li a:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+.footer-list span {
+  display: inline-block;
+  white-space: nowrap;
+}
+.footer-list p {
+  padding-top: 20px;
+}
+.footer-bar {
+  position: relative;
+  display: inline-block;
+  padding: 0 18px;
+}
+.footer-bar::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 10px;
+  background: #666;
+}
+@media screen and (max-width: 640px) {
+  .footer-list span {
+    display: block;
+  }
+  .footer-bar {
+    display: none;
+  }
 }
