@@ -1,4 +1,14 @@
 window.onload = function () {
+
+  let modalWrap = document.querySelector(".modal-wrap");
+  let modalClose = document.querySelector(".modal-close");
+  modalClose.addEventListener("click", function () {
+    modalWrap.classList.add("fadeOut");
+    modalWrap.addEventListener("animationend", () => {
+      modalWrap.style.display = "none";
+    });
+  });
+  AOS.init();
   // 상단 스크롤 기능
   const header = document.querySelector(".header");
   const mbt = document.querySelector(".mbt");
@@ -140,23 +150,8 @@ window.onload = function () {
   // 1 번 li 의 흰색 라인이 늘어나는 모션을 실행
   swViusalPgLi[0].classList.add("active");
 
-  // Swiper 가 바뀔 때 마다 실행
-  // 슬라이더가 바뀌는 상태를 찾아서
-  // 우리가 적용하고자 하는 처리를 하고자.
-  // Swiper 의  API 를 참조 해서 작성
   swiper.on("slideChange", function () {
-    // realIndex   는 진짜 html 태그의 순서값
-    // activeIndex 는 모션이 되는 요소의 순서값
-    // loop: true 라면 2개가 추가된다.
-    //       자연스러운 모션을 위해서 2개가 추가된다.
-    //       realIndex 와 activeIndex 는 개수가 다르다.
 
-    // loop: false 라면
-    //       realIndex 와 activeIndex 는 개수가 같다.
-
-    // console.log("slide changed", swiper.realIndex, swiper.activeIndex);
-    // LI 태그를 모두 초기화 한다.
-    // 현재 모션이 일어나는 슬라이드 번호(realIndex) 클래스 적용
     swViusalPgLi.forEach((item, index) => {
       if (swiper.realIndex === index) {
         // 같은 순서는 모션을 하라
@@ -225,13 +220,30 @@ window.onload = function () {
   }
   moveGotop();
 
-  window.addEventListener("resize", function () {
-    footerY = footer.offsetTop;
+  let waypoint_footer = new Waypoint({
+    element: document.querySelector(".footer"),
+    handler: function (direction) {
+      console.log(direction);
+      if (direction === "down") {
+        gotop.classList.add("active-footer");
+      } else {
+        gotop.classList.remove("active-footer");
+      }
+    },
+    offset: "90%",
   });
 
-  window.addEventListener("scroll", function () {
-    // 스크롤 이동 픽셀값
-    scy = this.document.documentElement.scrollTop;
-    moveGotop();
+  let waypoint_service = new Waypoint({
+    element: document.querySelector(".service"),
+    handler: function (direction) {
+
+      if (direction === "down") {
+        gotop.classList.add("active");
+      } else {
+        gotop.classList.remove("active");
+      }
+    },
+    offset: "80%",
   });
+
 };
